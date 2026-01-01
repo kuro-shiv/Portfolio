@@ -2,15 +2,35 @@
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const sidebar = document.getElementById('sidebar');
 
+// Hide sidebar by default on mobile
+function hideSidebarOnMobile() {
+  if (window.innerWidth <= 768) {
+    sidebar.style.display = 'none';
+  } else {
+    sidebar.style.display = 'flex';
+  }
+}
+
+// Initial check on page load
+hideSidebarOnMobile();
+
+// Check on window resize
+window.addEventListener('resize', hideSidebarOnMobile);
+
+// Toggle sidebar on mobile menu button click
 mobileMenuBtn?.addEventListener('click', function(e) {
   e.stopPropagation();
-  sidebar.style.display = sidebar.style.display === 'none' ? 'flex' : 'none';
+  if (window.innerWidth <= 768) {
+    sidebar.style.display = sidebar.style.display === 'none' ? 'flex' : 'none';
+  }
 });
 
 // Close mobile menu when link is clicked
 document.querySelectorAll('.sidebar a').forEach(link => {
   link.addEventListener('click', function() {
-    sidebar.style.display = 'none';
+    if (window.innerWidth <= 768) {
+      sidebar.style.display = 'none';
+    }
   });
 });
 
