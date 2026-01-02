@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shivam Kumar Dubey - Portfolio</title>
 
-<!-- SEO Meta Tags -->
-<meta name="description" content="Portfolio of Shivam Kumar Dubey - Automation Tester, Full Stack Developer, and Tech Creator.">
+<!-- SEO -->
+<meta name="description" content="Portfolio of Shivam Kumar Dubey — Automation Tester, Full Stack Developer & Tech Creator.">
 <meta property="og:title" content="Shivam Kumar Dubey - Portfolio">
 <meta property="og:description" content="Automation Tester • Full Stack Developer • Tech Creator">
 <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
 
 <!-- Fonts & Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Pacifico&display=swap" rel="stylesheet">
 
 <!-- CSS -->
 <link rel="stylesheet" href="styles.css">
@@ -22,238 +22,217 @@
 </head>
 <body>
 
-<!-- Mobile Menu Button -->
-<button class="mobile-menu-btn" id="mobileMenuBtn">
-  <i class="fa fa-bars"></i>
-</button>
+<!-- Theme Toggle -->
+<button class="theme-btn" id="themeToggle"><i class="fa fa-moon-o"></i></button>
+
+<!-- Mobile Menu -->
+<button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fa fa-bars"></i></button>
 
 <!-- Sidebar Navigation -->
-<nav class="sidebar w3-hide-small fade-in" id="sidebar">
+<nav class="sidebar hidden" id="sidebar">
   <a href="#home"><i class="fa fa-home"></i><p>HOME</p></a>
   <a href="#about"><i class="fa fa-user"></i><p>ABOUT</p></a>
   <a href="#skills"><i class="fa fa-code"></i><p>SKILLS</p></a>
-  <a href="#projects"><i class="fa fa-cogs"></i><p>PROJECTS</p></a>
+  <a href="#projects"><i class="fa fa-rocket"></i><p>PROJECTS</p></a>
   <a href="#experience"><i class="fa fa-briefcase"></i><p>WORK</p></a>
   <a href="#certifications"><i class="fa fa-certificate"></i><p>CERTS</p></a>
   <a href="#contact"><i class="fa fa-envelope"></i><p>CONTACT</p></a>
 </nav>
 
+<!-- Main Content -->
 <div id="main">
 
-<!-- Home Section -->
+<!-- HERO -->
 <section id="home" class="fade-in">
-  <h1>Hi, I'm <span class="highlight">Shivam Kumar Dubey</span></h1>
-  <p class="role">Automation Tester • Full Stack Developer • Tech Creator</p>
-  <img src="photo2.png" class="profile-img">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>Hey, I’m <span class="highlight">Shivam Kumar Dubey</span> 👋</h1>
+
+      <h2><span class="new" >I am</span> <span id="typing" class="typing"></span></h2>
+
+      <p class="hero-sub">
+        I build reliable automation & dynamic web experiences, while crafting engaging tech stories that inspire and educate.
+      </p>
+
+      
+    </div>
+
+    <div class="hero-img">
+      <img src="assets/photo2.png" alt="Shivam Photo">
+    </div>
+  </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="fade-in section-left">
-  <h2>About Me</h2><hr>
-
-  <p>I'm a passionate <b>QA Automation Engineer and Full Stack Developer</b> currently pursuing 
-  <b>B.Tech in Computer Science (Data Science)</b>.</p>
-
-  <p>I build automation testing solutions using <b>Selenium</b> and create scalable web apps with 
-  <b>React + Next.js</b>. I also create <b>mythology & anime-based storytelling</b> content on YouTube and 
-  share <b>tech articles & implementation notes</b> on my blog.</p>
-
-  <p>I am actively involved on <b>LinkedIn, Instagram & X</b> to grow my tech network and share knowledge.</p>
-
-  <p>✨ Currently seeking <b>Full-time roles</b> as a Software Engineer or Automation Tester.</p>
+<!-- ABOUT -->
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+  <p>
+    I’m a passionate <strong>QA Automation Engineer</strong> and <strong>Full Stack Developer</strong> currently pursuing B.Tech in Computer Science (Data Science).
+    I create reliable automation with <b>Selenium + Python</b> and build dynamic digital experiences with <b>React & JavaScript</b>.
+  </p>
+  <p>
+    Outside of engineering — I create <strong>tech storytelling content</strong>, blending mythology, anime, and innovation to bring meaningful lessons to learners.
+  </p>
+  <p>
+    ✨ Actively seeking <strong>SDE</strong>, <strong>QA Automation</strong> & <strong>Freelance</strong> opportunities.
+  </p>
 </section>
 
-<!-- Skills -->
-<section id="skills" class="fade-in section-left">
-  <h2>Skills</h2><hr>
+<!-- SKILLS -->
+<section id="skills" class="fade-in">
+  <h2>Skills</h2>
   <div class="skill-box">
     <span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
-    <span>React</span><span>Next.js</span><span>Selenium</span><span>GitHub</span>
-    <span>SQL</span><span>Jira</span>
+    <span>React</span><span>Selenium</span><span>SQL</span><span>Git</span>
+    <span>Next.js</span><span>Jira</span>
   </div>
 </section>
 
-<!-- Projects Section -->
-<section id="projects" class="fade-in section-left">
-  <h2>Projects</h2><hr>
+<!-- PROJECTS -->
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
+
   <div class="project-card">
-    <a href="https://github.com/kuro-shiv/sno-relax-client" target="_blank"><b>Sno Relax</b></a>
-    <p>Full-stack mental wellness platform for mood healing & balance.</p>
+    <h3>🧘 Sno Relax</h3>
+    <p>Mental wellness platform for mood tracking & balance.</p>
+    <div class="tech-badges"><span>React</span><span>Node</span><span>MongoDB</span></div>
+    <a href="https://github.com/kuro-shiv/sno-relax-client" target="_blank" class="btn-project">GitHub</a>
   </div>
+
   <div class="project-card">
-    <a href="https://github.com/kuro-shiv/GDG-solution-Challenge" target="_blank"><b>GDG Solution Challenge</b></a>
-    <p>Social impact solution aligned with Sustainable Development Goals.</p>
+    <h3>🌍 GDG Solution Challenge</h3>
+    <p>Tech for social good aligned with SDG goals.</p>
+    <div class="tech-badges"><span>Next.js</span><span>Firebase</span></div>
+    <a href="https://github.com/kuro-shiv/GDG-solution-Challenge" target="_blank" class="btn-project">GitHub</a>
   </div>
+
   <div class="project-card">
-    <a href="https://github.com/kuro-shiv/Python" target="_blank"><b>Python Automation</b></a>
-    <p>Automation scripts for reducing repetitive workflows.</p>
+    <h3>⚙ Python Automation</h3>
+    <p>Automating repetitive workflows & testing tasks.</p>
+    <div class="tech-badges"><span>Python</span><span>Selenium</span></div>
+    <a href="https://github.com/kuro-shiv/Python" target="_blank" class="btn-project">GitHub</a>
   </div>
 </section>
 
-<!-- Work Experience -->
-<section id="experience" class="fade-in section-left">
-  <h2>Work Experience</h2><hr>
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-in">
+  <h2>Work Experience</h2>
+
   <div class="timeline">
     <div class="timeline-item left" onclick="openModal('creesync')">
-      <h4>CreeSync Software Solutions</h4><p>QA Associate</p>
+      <h4>CreeSync Software Solutions</h4>
+      <p>QA Associate — Manual + Automation Testing</p>
     </div>
     <div class="timeline-item right" onclick="openModal('laitkor')">
-      <h4>Laitkor Labs</h4><p>Automation Intern</p>
+      <h4>Laitkor Labs</h4>
+      <p>Automation Intern — Selenium & Regression Testing</p>
     </div>
     <div class="timeline-item left" onclick="openModal('elate')">
-      <h4>Elate Consultancy</h4><p>HR Intern</p>
+      <h4>Elate Consultancy</h4>
+      <p>HR Intern — Operations & Candidate Coordination</p>
     </div>
   </div>
 </section>
 
-<!-- Modals -->
+<!-- EXPERIENCE MODALS -->
 <div id="creesync" class="modal" onclick="closeModal('creesync')">
   <div class="modal-content">
     <h3>CreeSync Software Solutions</h3>
-    <p>✔ Manual + Automation Testing</p>
-    <p>✔ Jira Bug Tracking</p>
-    <p>✔ Enhanced Test Coverage</p>
+    <Role>QA Associate</Role><br>
+    <Duration>Oct 2025 - Present</Duration>
+    <p>✔ Automation + Manual Testing</p>
+    <p>✔ Test Case Design & Improvement</p>
+    <p>✔ Bug Tracking with Jira</p>
   </div>
 </div>
 
 <div id="laitkor" class="modal" onclick="closeModal('laitkor')">
   <div class="modal-content">
     <h3>Laitkor Labs</h3>
-    <p>✔ UI & Regression Testing</p>
-    <p>✔ Built Selenium Scripts</p>
-    <p>✔ Git Versioning</p>
+    <Role>Mannual And Automation Tester Intern</Role><br>
+    <Duration>March 2025 - Oct 2025</Duration>
+    <p>✔ Selenium UI Automation</p>
+    <p>✔ Regression Suite Stabilization</p>
+    <p>✔ Git Version Control</p>
   </div>
 </div>
 
 <div id="elate" class="modal" onclick="closeModal('elate')">
   <div class="modal-content">
     <h3>Elate Consultancy</h3>
+    <Role>HR Intern</Role><br>
+    <Duration>Oct 2024 - Dec 2024</Duration>
+    <p>✔ HR Operations</p>
     <p>✔ Candidate Coordination</p>
     <p>✔ Data Handling</p>
-    <p>✔ HR Operations</p>
   </div>
 </div>
 
-<!-- Certifications -->
-<section id="certifications" class="fade-in section-left">
-  <h2>Certifications And Training</h2><hr>
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="fade-in">
+  <h2>Certifications</h2>
 
   <div class="cert-grid">
-
-    <!-- Certificate - Automation Testing -->
     <div class="cert-card">
-      <h4>Internship</h4>
-      <p>College trainiong Programm</p>
-      <a href="https://drive.google.com/drive/u/0/folders/1wyHfx2bbwG3uF_0tZl5KQb3brKZJGXxV" 
-         target="_blank" class="btn">
-         View Certificate
-      </a>
+      <h4>Internship Training</h4>
+      <p>Automation Testing</p>
+      <a href="https://drive.google.com/drive/u/0/folders/1wyHfx2bbwG3uF_0tZl5KQb3brKZJGXxV" class="btn" target="_blank">View</a>
     </div>
-
-    <!-- Certificate - Python Specialization -->
     <div class="cert-card">
       <h4>Web Development</h4>
-      <p>Course/Event/Quiz</p>
-      <a href="https://drive.google.com/drive/u/0/folders/1pFNhQ2G8fAEgzRlessQUAG7Ctio19Day" 
-         target="_blank" class="btn">
-         View Certificate
-      </a> 
+      <p>Frontend Training</p>
+      <a href="https://drive.google.com/drive/u/0/folders/1pFNhQ2G8fAEgzRlessQUAG7Ctio19Day" class="btn" target="_blank">View</a>
     </div>
-
-      <div class="cert-card">
-      <h4>Web Development</h4>
-      <p>Course/Event/Quiz</p>
-      <a href="https://drive.google.com/drive/u/0/folders/1pFNhQ2G8fAEgzRlessQUAG7Ctio19Day" 
-         target="_blank" class="btn">
-         View Certificate
-      </a> 
-    </div>
-
-    <!-- Certificate - Web Development -->
     <div class="cert-card">
       <h4>Cyber Security</h4>
-      <p>Course/Event/Quiz</p>
-      <a href="https://drive.google.com/drive/u/0/folders/11TskxxjayjUxwgZHA7wKZw0N6wf2kbtx" 
-         target="_blank" class="btn">
-         View Certificate
-      </a>
-    </div>
-<!-- Certificate - Web Development -->
-    <div class="cert-card">
-      <h4>Cyber Security</h4>
-      <p>Course/Event/Quiz</p>
-      <a href="https://drive.google.com/drive/u/0/folders/11TskxxjayjUxwgZHA7wKZw0N6wf2kbtx" 
-         target="_blank" class="btn">
-         View Certificate
-      </a>
-    </div>
-
-    <!-- Certificate - Web Development -->
-    <div class="cert-card">
-      <h4>Cyber Security</h4>
-      <p>Course/Event/Quiz</p>
-      <a href="https://drive.google.com/drive/u/0/folders/11TskxxjayjUxwgZHA7wKZw0N6wf2kbtx" 
-         target="_blank" class="btn">
-         View Certificate
-      </a>
-    </div>
-
-    <!-- Certificate - Web Development -->
-    <div class="cert-card">
-      <h4>Cyber Security</h4>
-      <p>Course/Event/Quiz</p>
-      <a href="https://drive.google.com/drive/u/0/folders/11TskxxjayjUxwgZHA7wKZw0N6wf2kbtx" 
-         target="_blank" class="btn">
-         View Certificate
-      </a>
+      <p>Learning Certification</p>
+      <a href="https://drive.google.com/drive/u/0/folders/11TskxxjayjUxwgZHA7wKZw0N6wf2kbtx" class="btn" target="_blank">View</a>
     </div>
   </div>
 </section>
 
-<!-- Resume Button -->
-<section class="fade-in section-left">
-  <h2>Resume</h2><hr>
-  <a class="btn" href="Shivam_KumarDubey_Resume.pdf" download>
-    <i class="fa fa-download"></i> Download Resume
-  </a>
+<!-- RESUME -->
+<section class="fade-in">
+  <h2>Resume</h2>
+  <a href="assets/Shivam_KumarDubey_Resume.pdf" class="btn" download><i class="fa fa-download"></i> Download Resume</a>
 </section>
 
-<!-- GitHub Stats -->
-<section class="fade-in section-left">
-  <h2>GitHub Stats</h2><hr>
-  <div class="github-grid">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=kuro-shiv&theme=tokyonight" style="width: 50%;"">
-  </div>
+<!-- GITHUB STATS -->
+<section class="fade-in">
+<h2>GitHub Stats</h2>
+<div class="github-grid">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=kuro-shiv&theme=tokyonight" alt="GitHub Streak Stats">
+</div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="fade-in section-left">
-  <h2>Contact Me</h2><hr>
-  <p><b>Let's connect — always open to exciting work & collabs!</b></p>
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <h2>Contact Me</h2>
+  <p><strong>Open to opportunities & collaborations!</strong></p>
 
   <div class="contact-info">
     <div class="contact-item">
       <div class="contact-header">
-        <i class="fa fa-envelope"></i>
-        <span class="label">Email: </span>
-      
+        <i class="fa fa-envelope"></i><span class="label">Email</span>
+      </div>
       <a href="mailto:dubeysk2003@gmail.com">dubeysk2003@gmail.com</a>
-  </div>  </div>
+    </div>
+
     <div class="contact-item">
       <div class="contact-header">
-        <i class="fa fa-whatsapp"></i>
-        <span class="label">WhatsApp: </span>
-     
+        <i class="fa fa-whatsapp"></i><span class="label">WhatsApp</span>
+      </div>
       <a href="https://wa.me/918299142475" target="_blank">+91 8299142475</a>
-   </div>  </div>
+    </div>
   </div>
 
+  <!-- Social -->
   <div class="social-icons">
     <a href="https://www.linkedin.com/in/shivam-kumar-dubey-970a87248" target="_blank"><i class="fa fa-linkedin"></i></a>
     <a href="https://github.com/kuro-shiv" target="_blank"><i class="fa fa-github"></i></a>
-    <a href="https://x.com/Shivam_twt023" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://x.com/shivam_twt023" target="_blank"><i class="fa fa-twitter"></i></a>
     <a href="https://www.instagram.com/greyman_life" target="_blank"><i class="fa fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@kuro_ank023" target="_blank"><i class="fa fa-youtube"></i></a>
+    <a href="https://www.youtube.com/@kuro_ank023" target="_blank"><i class="fa fa-youtube-play"></i></a>
     <a href="https://aigen023.blogspot.com" target="_blank"><i class="fa fa-pencil"></i></a>
   </div>
 </section>
