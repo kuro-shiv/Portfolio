@@ -464,3 +464,14 @@ hr {
   width:100%;
   border-radius:12px;
 }
+
+/* Hide sidebar completely on small phone sizes */
+@media (max-width: 480px) {
+  .sidebar,
+  .mobile-menu-btn {
+    display: none !important;
+  }
+
+  /* Ensure main content uses full width on phones */
+  #main { margin-left: 0; }
+}
