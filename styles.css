@@ -276,6 +276,20 @@ hr {
   border-radius: 6px;
 }
 
+.btn-Demo {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 12px;
+  background: var(--primary);
+  color: #000;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: .3s;
+  align-items: self-end;
+  margin-left: 10px;
+}
+
 .btn-project {
   text-decoration: none;
   display: inline-block;
