@@ -1,172 +1,182 @@
-/* ===========================
- DOM Selectors
-=========================== */
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const sidebar = document.getElementById("sidebar");
-const navLinks = document.querySelectorAll(".sidebar a");
-const sections = document.querySelectorAll("section");
-const themeToggle = document.getElementById("themeToggle");
-const fadeElements = document.querySelectorAll(".fade-in");
-const typingText = document.getElementById("typing");
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+const year = document.getElementById("year");
+const youtubeFeed = document.getElementById("youtubeFeed");
+const blogFeed = document.getElementById("blogFeed");
 
-/* ===========================
- Theme Toggle
-=========================== */
-let currentTheme = localStorage.getItem("theme") || "dark";
-document.documentElement.setAttribute("data-theme", currentTheme);
-
-themeToggle.innerHTML =
-  currentTheme === "light"
-    ? '<i class="fa fa-moon-o"></i>'
-    : '<i class="fa fa-sun-o"></i>';
-
-themeToggle.addEventListener("click", () => {
-  const newTheme =
-    document.documentElement.getAttribute("data-theme") === "dark"
-      ? "light"
-      : "dark";
-  document.documentElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
-
-  themeToggle.innerHTML =
-    newTheme === "light"
-      ? '<i class="fa fa-moon-o"></i>'
-      : '<i class="fa fa-sun-o"></i>';
-});
-
-/* ===========================
- Mobile Sidebar Toggle
-=========================== */
-function updateSidebar() {
-  if (window.innerWidth <= 768) {
-    sidebar.classList.add("hidden");
-  } else {
-    sidebar.classList.remove("hidden");
-  }
+if (year) {
+  year.textContent = new Date().getFullYear();
 }
-updateSidebar();
-window.addEventListener("resize", updateSidebar);
 
-mobileMenuBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("hidden");
-});
+if (menuBtn && nav) {
+  const setMenuState = (isOpen) => {
+    nav.classList.toggle("open", isOpen);
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+  };
 
-/* Hide sidebar on mobile when clicking links */
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    if (window.innerWidth <= 768) sidebar.classList.add("hidden");
+  menuBtn.addEventListener("click", () => {
+    setMenuState(!nav.classList.contains("open"));
   });
-});
 
-/* ===========================
- Smooth Scroll
-=========================== */
-navLinks.forEach(link => {
-  link.addEventListener("click", (e) => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuState(false));
   });
-});
 
-/* ===========================
- Active Nav Highlight On Scroll
-=========================== */
-function setActiveLink() {
-  let scrollPos = window.scrollY + 200;
+  document.addEventListener("click", (event) => {
+    if (!nav.classList.contains("open")) return;
+    if (nav.contains(event.target) || menuBtn.contains(event.target)) return;
+    setMenuState(false);
+  });
 
-  sections.forEach(section => {
-    if (
-      scrollPos >= section.offsetTop &&
-      scrollPos < section.offsetTop + section.offsetHeight
-    ) {
-      navLinks.forEach(el => el.classList.remove("active"));
-      document
-        .querySelector(`.sidebar a[href="#${section.id}"]`)
-        ?.classList.add("active");
-    }
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenuState(false);
   });
 }
-setActiveLink();
-window.addEventListener("scroll", setActiveLink);
 
-/* ===========================
- Scroll Reveal Animation
-=========================== */
-function revealOnScroll() {
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 120) {
-      el.classList.add("visible");
-    }
-  });
-}
-revealOnScroll();
-window.addEventListener("scroll", revealOnScroll);
-
-/* ===========================
- Typing Animation
-=========================== */
-const roles = [
-  "Automation Engineer",
-  "Full Stack Developer",
-  "Tech Creator",
-  "Storytelling Engineer",
-  "QA + Frontend Enthusiast"
-];
-
-let wordIndex = 0,
-  charIndex = 0;
-
-function type() {
-  if (!typingText) return;
-  if (charIndex < roles[wordIndex].length) {
-    typingText.textContent += roles[wordIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(type, 120);
-  } else {
-    setTimeout(erase, 900);
-  }
+function escapeHtml(value) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
-function erase() {
-  if (charIndex > 0) {
-    typingText.textContent = roles[wordIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(erase, 60);
-  } else {
-    wordIndex = (wordIndex + 1) % roles.length;
-    setTimeout(type, 300);
+function trimText(value, maxLength) {
+  if (value.length <= maxLength) return value;
+  return `${value.slice(0, maxLength - 1).trimEnd()}...`;
+}
+
+function htmlToText(html) {
+  return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+async function fetchTextWithFallback(url) {
+  try {
+    const response = await fetch(url, { cache: "no-store" });
+    if (response.ok) return await response.text();
+  } catch (_) {
+    // Continue to proxy fallback.
+  }
+
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+  const response = await fetch(proxyUrl, { cache: "no-store" });
+  if (!response.ok) throw new Error("Feed fetch failed.");
+  return await response.text();
+}
+
+function renderYoutubeCards(items) {
+  if (!youtubeFeed) return;
+
+  if (!items.length) {
+    youtubeFeed.innerHTML = `
+      <article class="card feed-card">
+        <p class="feed-excerpt">Unable to load latest videos right now.</p>
+        <a class="feed-link" href="https://www.youtube.com/channel/UCLbBOJJTiBc4y8CgHasvdHA" target="_blank" rel="noreferrer">Open YouTube Channel</a>
+      </article>
+    `;
+    return;
+  }
+
+  youtubeFeed.innerHTML = items
+    .map((item) => {
+      const title = escapeHtml(trimText(item.title, 96));
+      const thumb = escapeHtml(item.thumb);
+      const link = escapeHtml(item.link);
+      return `
+        <article class="card feed-card">
+          <a href="${link}" target="_blank" rel="noreferrer">
+            <img class="feed-thumb" src="${thumb}" alt="${title}">
+          </a>
+          <h4 class="feed-title">${title}</h4>
+          <a class="feed-link" href="${link}" target="_blank" rel="noreferrer">Watch Video</a>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function parseYoutubeFeed(xmlText) {
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+  const entries = Array.from(xmlDoc.querySelectorAll("entry")).slice(0, 3);
+  return entries
+    .map((entry) => {
+      const title = entry.querySelector("title")?.textContent?.trim() || "";
+      const link = entry.querySelector("link")?.getAttribute("href") || "";
+      const thumb = entry.querySelector("media\\:thumbnail, thumbnail")?.getAttribute("url") || "";
+      return { title, link, thumb };
+    })
+    .filter((item) => item.title && item.link && item.thumb);
+}
+
+async function loadYoutubeFeed() {
+  const feedUrl = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLbBOJJTiBc4y8CgHasvdHA";
+  try {
+    const xmlText = await fetchTextWithFallback(feedUrl);
+    const items = parseYoutubeFeed(xmlText);
+    renderYoutubeCards(items);
+  } catch (_) {
+    renderYoutubeCards([]);
   }
 }
-type();
 
-/* ===========================
- Modal Handling
-=========================== */
-window.openModal = function (id) {
-  document.getElementById(id).style.display = "grid";
-  document.body.style.overflow = "hidden";
-};
-window.closeModal = function (id) {
-  document.getElementById(id).style.display = "none";
-  document.body.style.overflow = "";
-};
+function renderBlogCards(items) {
+  if (!blogFeed) return;
 
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal")) {
-    e.target.style.display = "none";
-    document.body.style.overflow = "";
+  if (!items.length) {
+    blogFeed.innerHTML = `
+      <article class="card feed-card">
+        <p class="feed-excerpt">Unable to load latest posts right now.</p>
+        <a class="feed-link" href="https://aigen023.blogspot.com/" target="_blank" rel="noreferrer">Open Blog</a>
+      </article>
+    `;
+    return;
   }
-});
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    document.querySelectorAll(".modal").forEach(m => {
-      m.style.display = "none";
-    });
-    document.body.style.overflow = "";
+  blogFeed.innerHTML = items
+    .map((item) => {
+      const title = escapeHtml(trimText(item.title, 90));
+      const excerpt = escapeHtml(trimText(item.excerpt, 150));
+      const link = escapeHtml(item.link);
+      return `
+        <article class="card feed-card">
+          <h4 class="feed-title">${title}</h4>
+          <p class="feed-excerpt">${excerpt}</p>
+          <a class="feed-link" href="${link}" target="_blank" rel="noreferrer">Read Post</a>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function parseBloggerFeed(data) {
+  const entries = data?.feed?.entry || [];
+  return entries.slice(0, 3).map((entry) => {
+    const title = entry?.title?.$t?.trim() || "";
+    const contentHtml = entry?.content?.$t || entry?.summary?.$t || "";
+    const excerpt = htmlToText(contentHtml);
+    const linkItem = (entry?.link || []).find((link) => link.rel === "alternate");
+    const link = linkItem?.href || "https://aigen023.blogspot.com/";
+    return { title, excerpt, link };
+  }).filter((item) => item.title && item.link);
+}
+
+async function loadBlogFeed() {
+  const feedUrl = "https://aigen023.blogspot.com/feeds/posts/default?alt=json&max-results=3";
+  try {
+    const jsonText = await fetchTextWithFallback(feedUrl);
+    const data = JSON.parse(jsonText);
+    const items = parseBloggerFeed(data);
+    renderBlogCards(items);
+  } catch (_) {
+    renderBlogCards([]);
   }
-});
+}
+
+loadYoutubeFeed();
+loadBlogFeed();
+
+const refreshIntervalMs = 1000 * 60 * 30;
+setInterval(loadYoutubeFeed, refreshIntervalMs);
+setInterval(loadBlogFeed, refreshIntervalMs);
