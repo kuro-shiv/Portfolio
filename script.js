@@ -1,97 +1,87 @@
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-const year = document.getElementById("year");
+/**
+ * SKD_OS v2.0 - Core Execution Script
+ */
 
-if (year) {
-  year.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  initTypewriter();
+  initScrollReveal();
+});
+
+/**
+ * Terminal Typewriter Effect for Hero Section
+ */
+function initTypewriter() {
+  const roles = [
+    "Backend_Engineer",
+    "Research_Author",
+    "AI_Builder",
+    "Continuous_Learner"
+  ];
+  
+  const typewriterElement = document.getElementById('typewriter');
+  if (!typewriterElement) return;
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 100;
+
+  function type() {
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+      // Remove character
+      typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 50; // Faster when deleting
+    } else {
+      // Add character
+      typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 150; // Slower when typing
+    }
+
+    // Determine next state
+    if (!isDeleting && charIndex === currentRole.length) {
+      // Pause at the end of the word
+      typingSpeed = 2000;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      typingSpeed = 500; // Pause before typing next word
+    }
+
+    setTimeout(type, typingSpeed);
+  }
+
+  // Start the typing effect
+  setTimeout(type, 1000);
 }
 
-if (menuBtn && nav) {
-  const setMenuState = (isOpen) => {
-    nav.classList.toggle("open", isOpen);
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
+/**
+ * Scroll Reveal Animations using Intersection Observer
+ */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.1
   };
 
-  menuBtn.addEventListener("click", () => {
-    setMenuState(!nav.classList.contains("open"));
-  });
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Optional: Stop observing once revealed to only animate once
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setMenuState(false));
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!nav.classList.contains("open")) return;
-    if (nav.contains(event.target) || menuBtn.contains(event.target)) return;
-    setMenuState(false);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenuState(false);
+  revealElements.forEach(el => {
+    observer.observe(el);
   });
 }
-
-const youtubeVideos = [
-  "l123QxZveZU",
-  "qokkXLRpZB0",
-  "JxcLVEQT5qo",
-  "Fe6_G5cW_ds",
-  "FeKNtzpxPoI",
-  "BfjNWj-2YAY",
-  "NGSiqFWB_Jw",
-  "GknlQiUsC24",
-  "IiTNj0B8rsU",
-  "MnIyxUZ4fdo",
-  "3vR3ZPY2TRs",
-  "4pmRAiArBkM",
-  "tbUCDLzwA4Y",
-  "p5s75eNvxSY",
-  "-_qbI5ClmMU"
-];
-
-const instagramReelIds = [
-  "DU_B9STk_Wg",
-  "DUddpUDE6Ps",
-  "DUdbz3yk1XC",
-  "DUOWYI4Ez0t",
-  "DTgFdq2E8ZV",
-  "DTbLF-9kwzG"
-];
-
-const blogPosts = [
-  { title: "Starting Cypress Automation From Zero", url: "https://aigen023.blogspot.com/2025/12/starting-cypress-automation-from-zero.html" },
-  { title: "Selenium Automation With Python", url: "https://aigen023.blogspot.com/2025/12/selenium-automation-with-python.html" },
-  { title: "Getting Started With Python", url: "https://aigen023.blogspot.com/2025/07/getting-started-with-python-for.html" },
-  { title: "What Is Automation Testing?", url: "https://aigen023.blogspot.com/2025/07/blog-1-what-is-automation-testing-why.html" },
-  { title: "JavaScript For Web Development", url: "https://aigen023.blogspot.com/2025/04/javascript-for-web-development-your.html" },
-  { title: "Introduction to Neural Networks", url: "https://aigen023.blogspot.com/2024/10/introduction-to-neural-networks.html" }
-];
-
-function getRandomItem(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function updatePublicContent() {
-  const youtubeFrame = document.getElementById("youtubeFrame");
-  const youtubeLink = document.getElementById("youtubeLink");
-  const instaFrame = document.getElementById("instaFrame");
-  const instaLink = document.getElementById("instaLink");
-  const blogFrame = document.getElementById("blogFrame");
-  const blogLink = document.getElementById("blogLink");
-
-  if (!youtubeFrame || !youtubeLink || !instaFrame || !instaLink || !blogFrame || !blogLink) return;
-
-  const yt = getRandomItem(youtubeVideos);
-  youtubeFrame.src = `https://www.youtube.com/embed/${yt}`;
-  youtubeLink.href = `https://www.youtube.com/shorts/${yt}`;
-
-  const reelId = getRandomItem(instagramReelIds);
-  instaFrame.src = `https://www.instagram.com/reel/${reelId}/embed`;
-  instaLink.href = `https://www.instagram.com/reel/${reelId}/`;
-
-  const blog = getRandomItem(blogPosts);
-  blogFrame.src = blog.url;
-  blogLink.href = blog.url;
-}
-
-document.addEventListener("DOMContentLoaded", updatePublicContent);

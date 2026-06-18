@@ -3,303 +3,343 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shivam Kumar Dubey | Backend Developer & QA Engineer</title>
-  <meta name="description" content="Portfolio of Shivam Kumar Dubey - Backend Developer and QA Engineer building reliable systems and documenting the process.">
+  <title>Shivam Kumar Dubey | Personal OS</title>
+  <meta name="description" content="Personal Operating System & Portfolio of Shivam Kumar Dubey - Backend Engineer, Research Author, AI Builder.">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#home">Shivam Kumar Dubey</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-    <nav class="nav" id="nav">
-      <a href="#about">About</a>
-      <a href="#stack">Tech Stack</a>
-      <a href="#ventures">Ventures</a>
-      <a href="#public">In Public</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#working-on">Working On</a>
-      <a href="#approach">Approach</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<body class="os-theme">
 
-  <main id="home">
-    <section class="hero section section-plain">
-      <p class="kicker">Backend Developer | QA Engineer</p>
-      <h1>Building Reliable Systems & Documenting the Process</h1>
-      <p class="lead">
-        I build backend-first products, automate quality workflows, and ship systems designed for reliability in real-world use.
-      </p>
-      <div class="trust-row">
-        <span class="trust-pill">QA Associate, CreeSync Software Solutions</span>
-        <span class="trust-pill">Automation Internship, Laitkor Labs</span>
-        <span class="trust-pill">Founder, Smart Fresher Hub</span>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#ventures">View Ventures</a>
-        <a class="btn btn-ghost" href="#projects">View Projects</a>
-        <a class="btn btn-ghost" href="./Shivam_Resume.pdf" download>View Resume</a>
-      </div>
-    </section>
+  <!-- OS Navbar / Command Bar -->
+  <nav class="command-bar">
+    <div class="brand-group">
+      <div class="status-dot pulse"></div>
+      <span class="brand">SKD_OS // v2.0.1</span>
+    </div>
+    <div class="nav-links">
+      <a href="#hero">sys.init</a>
+      <a href="#timeline">timeline</a>
+      <a href="#research">research</a>
+      <a href="#projects">projects</a>
+      <a href="#experience">experience</a>
+      <a href="#github">github</a>
+      <a href="#vision">vision</a>
+    </div>
+  </nav>
 
-    <section id="about" class="section section-soft">
-      <h2>About</h2>
-      <p>
-        I am Shivam Kumar Dubey, a Computer Science (Data Science) student working at the intersection of backend engineering and QA automation.
-        My focus is clear system architecture, testable code, and stable delivery.
-      </p>
-    </section>
+  <main class="dashboard">
 
-    <section id="stack" class="section section-light">
-      <h2>Tech Stack</h2>
-      <div class="cards compact">
-        <article class="card">
-          <h3>Backend</h3>
-          <p>Python, Django, Node.js, Express</p>
-        </article>
-        <article class="card">
-          <h3>Frontend</h3>
-          <p>React (basic), HTML, CSS</p>
-        </article>
-        <article class="card">
-          <h3>Database</h3>
-          <p>MongoDB, MySQL</p>
-        </article>
-        <article class="card">
-          <h3>Testing & QA</h3>
-          <p>Selenium WebDriver, Cypress, Manual Testing, Regression Testing, Functional Testing</p>
-        </article>
-        <article class="card">
-          <h3>Tools</h3>
-          <p>Git, Postman, Chrome DevTools, Jira</p>
-        </article>
+    <!-- 1. Hero Section -->
+    <section id="hero" class="panel hero-panel reveal">
+      <div class="hero-content">
+        <h1 class="glitch-text" data-text="Shivam Kumar Dubey">Shivam Kumar Dubey</h1>
+        <div class="terminal-box">
+          <span class="prompt">> roles: </span>
+          <span id="typewriter"></span><span class="cursor">_</span>
+        </div>
+        <p class="mission">
+          Building reliable backend systems, automating quality workflows, and researching AI-driven mental health frameworks. Continuously learning, shipping, and evolving.
+        </p>
+        <div class="cta-group">
+          <a href="#projects" class="btn primary-btn">Execute Projects <span class="arrow">→</span></a>
+          <a href="#timeline" class="btn secondary-btn">View Journey</a>
+          <a href="./Shivam_Dubey_Resume.pdf" class="btn ghost-btn" download>Export Resume.pdf</a>
+        </div>
       </div>
     </section>
 
-    <section id="ventures" class="section section-soft">
-      <h2>Ventures & Initiatives</h2>
-      <p class="section-intro">Early-stage platform initiatives designed as long-term technical infrastructure.</p>
-      <div class="venture-grid">
-        <article class="card highlight-card">
-          <h3>Smart Fresher Hub</h3>
-          <p class="meta">Career Infrastructure Platform</p>
-          <p>
-            Smart Fresher Hub is designed as scalable startup infrastructure for early-career talent and job readiness.
-          </p>
-          <ul class="impact-list">
-            <li>Resume Builder</li>
-            <li>ATS Score Checker</li>
-            <li>Freelance Application Portal</li>
-            <li>Learning Resources</li>
-            <li>YouTube Thumbnail Tool</li>
+    <!-- 2. Journey Timeline -->
+    <section id="timeline" class="panel timeline-panel reveal">
+      <div class="panel-header">
+        <h2>sys.journey_timeline()</h2>
+      </div>
+      <div class="timeline-track">
+        <div class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="node-content">
+            <span class="node-date">2021 - 2025</span>
+            <h3>B.Tech CSE (Data Science)</h3>
+            <p>Building foundational algorithms and data structures.</p>
+          </div>
+        </div>
+        <div class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="node-content">
+            <span class="node-date">Early 2024</span>
+            <h3>Programming Foundations</h3>
+            <p>Mastered Python, Java, and core CS principles.</p>
+          </div>
+        </div>
+        <div class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="node-content">
+            <span class="node-date">Mar 2025</span>
+            <h3>Automation Testing Intern</h3>
+            <p>Laitkor Labs: Automated UI paths, stabilizing flaky test suites.</p>
+          </div>
+        </div>
+        <div class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="node-content">
+            <span class="node-date">Mid 2025</span>
+            <h3>Research Publication</h3>
+            <p>Published framework on AI-driven mental health support (SnoRelax).</p>
+          </div>
+        </div>
+        <div class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="node-content">
+            <span class="node-date">Oct 2025</span>
+            <h3>Web Developer Associate</h3>
+            <p>CreeSync Software: Reducing manual regression, driving backend stability.</p>
+          </div>
+        </div>
+        <div class="timeline-node active">
+          <div class="node-marker pulse"></div>
+          <div class="node-content">
+            <span class="node-date">Present</span>
+            <h3>Current Goals</h3>
+            <p>Scaling architecture, mastering Go/Rust, contributing to open-source.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Learning OS -->
+    <section id="learning" class="panel learning-panel reveal">
+      <div class="panel-header">
+        <h2>runtime.learning_os</h2>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-box focus-box">
+          <h3>Current Focus</h3>
+          <ul class="tech-list">
+            <li>Advanced System Design</li>
+            <li>Django REST Architecture</li>
+            <li>Cypress Automation</li>
           </ul>
-          <div class="card-links">
-            <a href="https://smart-fresher-sa.great-site.net/" target="_blank" rel="noreferrer">Live Platform</a>
-          </div>
-        </article>
-        <article class="card highlight-card">
-          <h3>Smart Intern Hub</h3>
-          <p class="meta">Training & Skill Development Platform</p>
-          <p>
-            Structured initiative focused on internship readiness, project-based learning, and guided skill progression for students.
-          </p>
-          <p>
-            Built to connect practical training with real hiring expectations through a measurable, systems-oriented workflow.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="public" class="section">
-      <h2>Building in Public</h2>
-      <div class="public-grid">
-
-        <div class="public-card">
-          <h3>YouTube Shorts</h3>
-          <div class="video-wrapper">
-            <iframe id="youtubeFrame"
-              src=""
-              frameborder="0"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <a id="youtubeLink" target="_blank" rel="noreferrer">Watch on YouTube</a>
         </div>
-
-        <div class="public-card">
-          <h3>Instagram Reels</h3>
-          <p>Career growth & structured tech journey.</p>
-          <div class="video-wrapper">
-            <iframe
-              id="instaFrame"
-              src=""
-              frameborder="0"
-              scrolling="no"
-              allowtransparency="true">
-            </iframe>
+        <div class="bento-box recent-box">
+          <h3>Recently Learned</h3>
+          <div class="tags">
+            <span>GraphQL</span> <span>Docker basics</span> <span>React patterns</span> <span>Selenium</span>
           </div>
-          <a id="instaLink" href="https://www.instagram.com/greyman_life/" target="_blank" rel="noreferrer" class="btn-small">
-            View Reel
-          </a>
         </div>
-
-        <div class="public-card">
-          <h3>Latest Blog</h3>
-          <div class="blog-wrapper">
-            <iframe id="blogFrame" src="" title="Latest blog article preview"></iframe>
-          </div>
-          <a id="blogLink" href="https://aigen023.blogspot.com/2025/12/starting-cypress-automation-from-zero.html" target="_blank" rel="noreferrer" class="btn-small">
-            Read Article
-          </a>
-        </div>
-
-        <div class="public-card">
-          <h3>LinkedIn</h3>
-          <p>Backend systems & professional growth insights.</p>
-          <a href="https://www.linkedin.com/in/shivam-kumar-dubey-970a87248/" target="_blank" rel="noreferrer">
-            Follow on LinkedIn
-          </a>
-        </div>
-
-        <div class="public-card">
-          <h3>GitHub</h3>
-          <p>Code, automation suites & backend projects.</p>
-          <a href="https://github.com/shivamdubey023" target="_blank" rel="noreferrer">
-            View GitHub
-          </a>
-        </div>
-
-        <div class="public-card">
-          <h3>X (Twitter)</h3>
-          <p>Technical thoughts & growth documentation.</p>
-          <a href="https://x.com/Shivam_twt023/status/1998045848253698198" target="_blank" rel="noreferrer">
-            View Post
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="projects" class="section section-soft">
-      <h2>Projects</h2>
-      <div class="cards">
-        <article class="card project-card">
-          <h3>Sno Relax</h3>
-          <p class="meta">React • Node • MongoDB</p>
-          <p><strong>Problem:</strong> Users needed a clearer daily system for mood tracking, engagement, and personal reflection.</p>
-          <p><strong>Solution:</strong> Built a wellness workflow platform and integrated an AI chatbot layer to support guidance and user interaction.</p>
-          <p><strong>Impact:</strong> Improved recurring session retention and reduced friction in daily usage paths.</p>
-          <div class="card-links">
-            <a href="https://github.com/shivamdubey023/sno-relax-client" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://sno-relax-client.vercel.app/" target="_blank" rel="noreferrer">Live Demo</a>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <h3>Web Development Projects</h3>
-          <p class="meta">Next.js • Firebase</p>
-          <p><strong>Problem:</strong> Rebuilding core patterns from scratch slowed delivery and introduced repetitive implementation mistakes.</p>
-          <p><strong>Solution:</strong> Developed a reusable collection of frontend and full stack implementations for faster launch cycles.</p>
-          <p><strong>Impact:</strong> Reduced setup time and improved delivery consistency across new builds.</p>
-          <div class="card-links">
-            <a href="https://github.com/shivamdubey023/Web_Devlopment" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://shivamdubey023.github.io/Web_Devlopment/" target="_blank" rel="noreferrer">Live Demo</a>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <h3>Python Automation</h3>
-          <p class="meta">Python • Selenium</p>
-          <p><strong>Problem:</strong> Repetitive QA workflows increased manual effort and slowed regression cycles.</p>
-          <p><strong>Solution:</strong> Implemented reusable Selenium automation scripts for recurring test flows and routine validations.</p>
-          <p><strong>Impact:</strong> Cut repetitive execution effort and improved QA turnaround for regular releases.</p>
-          <div class="card-links">
-            <a href="https://github.com/shivamdubey023/Summer-Bootcamp-Training-Project" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="section section-light">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <article>
-          <h3>CreeSync Software Solutions</h3>
-          <p class="role">QA Associate | Oct 2025 - Present</p>
-          <ul class="impact-list">
-            <li>Reduced manual regression effort by 35% through Selenium-based automation.</li>
-            <li>Designed test suites covering core critical flows, contributing to 28% fewer release-stage defects.</li>
-            <li>Raised defect discovery rate in pre-production by 22% using structured validation cycles.</li>
+        <div class="bento-box roadmap-box">
+          <h3>Future Roadmap</h3>
+          <ul class="tech-list">
+            <li>Kubernetes Orchestration</li>
+            <li>Go for High-Performance Backend</li>
+            <li>Cloud Architecture (AWS)</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Research & Innovation -->
+    <section id="research" class="panel research-panel reveal">
+      <div class="panel-header">
+        <h2>/docs/research_innovation</h2>
+      </div>
+      <div class="research-content">
+        <div class="research-card">
+          <div class="card-glow"></div>
+          <h3>SnoRelax: Mental Health Support Framework</h3>
+          <p class="meta-tag">Published Research | AI & Healthcare</p>
+          <p>Designed a conceptual framework integrating AI chatbot layers to support psychological guidance, reduce daily usage friction, and improve session retention for digital mental health tools.</p>
+          <div class="impact-metrics">
+            <div class="metric"><span class="value">100%</span><span class="label">Architecture Design</span></div>
+            <div class="metric"><span class="value">Peer</span><span class="label">Reviewed</span></div>
+          </div>
+          <a href="https://www.ijraset.com/best-journal/snorelax-mental-health-support-system?utm_source=chatgpt.com" class="inline-link" target="_blank">Read Abstract -></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Projects Showcase -->
+    <section id="projects" class="panel projects-panel reveal">
+      <div class="panel-header">
+        <h2>~/workspace/projects</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <span class="folder-icon">📁</span>
+            <h3>SnoRelax App</h3>
+          </div>
+          <p class="tech-stack">React • Node • MongoDB</p>
+          <p>Wellness workflow platform with AI chatbot integration. Improved user engagement through personalized mood tracking flows.</p>
+          <div class="card-links">
+            <a href="https://github.com/shivamdubey023/sno-relax-client" target="_blank">Source</a>
+            <a href="https://sno-relax-client.vercel.app/" target="_blank">Live</a>
+          </div>
         </article>
-        <article>
-          <h3>Laitkor Labs</h3>
-          <p class="role">Automation Intern | Mar 2025 - Oct 2025</p>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <span class="folder-icon">📁</span>
+            <h3>Smart Fresher Hub</h3>
+          </div>
+          <p class="tech-stack">Django • Python • JS</p>
+          <p>Career infrastructure platform featuring ATS checkers, resume builders, and learning resource management.</p>
+          <div class="card-links">
+            <a href="https://smart-fresher-sa.great-site.net/" target="_blank">Live Portal</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <span class="folder-icon">📁</span>
+            <h3>Automated QA Suites</h3>
+          </div>
+          <p class="tech-stack">Selenium • Cypress • Python</p>
+          <p>Reusable automation scripts cutting repetitive testing execution effort by 35% for regular deployment cycles.</p>
+          <div class="card-links">
+            <a href="https://github.com/shivamdubey023/Summer-Bootcamp-Training-Project" target="_blank">View Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. Experience Dashboard -->
+    <section id="experience" class="panel experience-panel reveal">
+      <div class="panel-header">
+        <h2>sys.metrics(experience)</h2>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card highlight">
+          <div class="role-header">
+            <h3>Web Developer / QA Associate</h3>
+            <span class="company">CreeSync Software</span>
+            <span class="duration">Oct 2025 - Present</span>
+          </div>
           <ul class="impact-list">
-            <li>Automated high-frequency UI paths, improving regression execution speed by 30%.</li>
-            <li>Helped stabilize flaky test cases and improved suite pass consistency by 18%.</li>
-            <li>Improved issue traceability with Git-based workflows and clearer QA handoff notes.</li>
+            <li>Reduced manual regression effort by <span class="highlight-text">35%</span>.</li>
+            <li>Designed test suites lowering pre-prod defects by <span class="highlight-text">28%</span>.</li>
+            <li>Architected robust backend API validations.</li>
           </ul>
-        </article>
-        <article>
-          <h3>Elate Consultancy</h3>
-          <p class="role">HR Intern | Oct 2024 - Dec 2024</p>
+        </div>
+        <div class="exp-card">
+          <div class="role-header">
+            <h3>Automation Tester Intern</h3>
+            <span class="company">Laitkor Labs</span>
+            <span class="duration">Mar 2025 - Oct 2025</span>
+          </div>
           <ul class="impact-list">
-            <li>Supported candidate operations and reduced profile processing turnaround by 15%.</li>
-            <li>Improved record consistency through structured data handling and process checklists.</li>
+            <li>Automated high-frequency UI paths, improving execution speed by <span class="highlight-text">30%</span>.</li>
+            <li>Stabilized flaky tests, increasing suite pass consistency by <span class="highlight-text">18%</span>.</li>
           </ul>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section id="working-on" class="section section-soft">
-      <h2>Currently Working On</h2>
-      <div class="cards compact">
-        <article class="card">
-          <h3>Scaling Smart Fresher Hub</h3>
-          <p>Expanding feature depth and platform reliability for long-term startup use.</p>
-        </article>
-        <article class="card">
-          <h3>Backend Architecture</h3>
-          <p>Improving service structure with Django REST principles and cleaner API design.</p>
-        </article>
-        <article class="card">
-          <h3>Automation Workflows</h3>
-          <p>Developing advanced QA automations using Selenium and Cypress for broader test coverage.</p>
-        </article>
-        <article class="card">
-          <h3>Technical Authority in Public</h3>
-          <p>Publishing practical engineering insights around backend systems and QA execution discipline.</p>
-        </article>
+    <!-- 7. GitHub Command Center -->
+    <section id="github" class="panel github-panel reveal">
+      <div class="panel-header">
+        <h2>git log --stat</h2>
+      </div>
+      <div class="github-stats-container">
+        <div class="gh-card">
+          <img src="https://github-readme-stats.vercel.app/api?username=shivamdubey023&show_icons=true&theme=radical&bg_color=0a1128&title_color=00e5ff&text_color=a3adc2&border_color=1f2937&hide_border=true" alt="GitHub Stats">
+        </div>
+        <div class="gh-card">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamdubey023&layout=compact&theme=radical&bg_color=0a1128&title_color=b026ff&text_color=a3adc2&border_color=1f2937&hide_border=true" alt="Top Languages">
+        </div>
+      </div>
+      <div class="cta-center">
+        <a href="https://github.com/shivamdubey023" target="_blank" class="btn ghost-btn">Access Full Repository <span class="arrow">↗</span></a>
       </div>
     </section>
 
-    <section id="approach" class="section section-light">
-      <h2>My Approach</h2>
-      <p class="approach-line">
-        I believe software should be reliable before it is scalable.
-        My focus is building backend systems that are structured, testable, and production-ready.
-      </p>
-    </section>
-
-    <section id="contact" class="section section-cta">
-      <h2>Let's Build Something Meaningful</h2>
-      <p class="section-intro">Open to engineering roles, freelance backend/QA work, and startup collaborations.</p>
-      <div class="cta-grid">
-        <a class="btn btn-primary" href="./Shivam_Resume.pdf" download>Resume</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/shivam-kumar-dubey-970a87248/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="btn btn-ghost" href="https://github.com/shivamdubey023" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn btn-ghost" href="mailto:dubeysk2003@gmail.com">Email</a>
+    <!-- 8. Beyond Coding -->
+    <section id="beyond" class="panel beyond-panel reveal">
+      <div class="panel-header">
+        <h2>env.background_processes</h2>
+      </div>
+      <div class="bento-grid-soft">
+        <div class="soft-card">
+          <span class="emoji">🏀</span>
+          <h3>Basketball</h3>
+          <p>Discipline, teamwork, and high-pressure execution on the court.</p>
+        </div>
+        <div class="soft-card">
+          <span class="emoji">🎭</span>
+          <h3>Drama Club Leadership</h3>
+          <p>Public speaking, creative direction, and managing dynamic teams.</p>
+        </div>
+        <div class="soft-card">
+          <span class="emoji">📅</span>
+          <h3>Event Management</h3>
+          <p>Organizing hackathons and tech events, handling logistics and flow.</p>
+        </div>
       </div>
     </section>
+
+    <!-- 9. Lessons Learned -->
+    <section id="lessons" class="panel lessons-panel reveal">
+      <div class="panel-header">
+        <h2>tail -f /var/log/insights</h2>
+      </div>
+      <div class="insights-list">
+        <div class="insight-item">
+          <span class="tag bg-navy">Testing</span>
+          <p>"Automate the critical paths first. Reliability beats feature count in production."</p>
+        </div>
+        <div class="insight-item">
+          <span class="tag bg-purple">Backend</span>
+          <p>"Design APIs for the developer who has to use them at 2 AM. Clear contracts, strict validation."</p>
+        </div>
+        <div class="insight-item">
+          <span class="tag bg-teal">AI & Research</span>
+          <p>"AI is a layer, not a product. It needs to solve a human friction point to be valuable."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Future Vision -->
+    <section id="vision" class="panel vision-panel reveal">
+      <div class="panel-header">
+        <h2>run future_vision.sh</h2>
+      </div>
+      <div class="vision-content">
+        <p class="lead">My goal is to evolve into a world-class software engineer who builds foundational systems.</p>
+        <div class="vision-grid">
+          <div class="vision-card">
+            <h4>Career Trajectory</h4>
+            <p>Moving towards Senior Backend Architecture and open-source maintainership.</p>
+          </div>
+          <div class="vision-card">
+            <h4>Tech Frontier</h4>
+            <p>Exploring Rust for system-level safety and Web3 infrastructure protocols.</p>
+          </div>
+          <div class="vision-card">
+            <h4>Philosophy</h4>
+            <p>"Build infrastructure that lasts, write documentation that teaches, ship code that scales."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Shivam Kumar Dubey</p>
+  <footer class="os-footer">
+    <div class="footer-left">
+      <span>root@skd-os:~#</span>
+      <span class="blinking-cursor">_</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/shivam-kumar-dubey-970a87248/" target="_blank">LinkedIn</a>
+      <a href="mailto:dubeysk2003@gmail.com">Ping(Email)</a>
+      <a href="https://x.com/Shivam_twt023" target="_blank">X(Twitter)</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
