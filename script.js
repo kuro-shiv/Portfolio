@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initTypewriter() {
   const roles = [
+    "Software_Developer",
     "Backend_Engineer",
+    "API_Engineer",
     "Research_Author",
-    "AI_Builder",
-    "Continuous_Learner"
+    "AI_Product_Builder"
   ];
   
   const typewriterElement = document.getElementById('typewriter');
